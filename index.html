@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App - JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css"> -->
+    <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <link rel="stylesheet" href="assets/css/select2-bootstrap4.css">
+    <!-- <link rel="stylesheet" href="font/Rimouski.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <script src="./assets/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar fixed-top navbar-dark bg-dark justify-content-center">
+            <h1 class="text-light mt-1">Weather Dashbord</h1>
+        </nav>
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="col-md-3 bg-light p-4">
+                    <label class="control-label" for="city_name">Search for a City:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="city_name" placeholder="Search City Name" aria-label="Search City Name" aria-describedby="search_city_btn">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="search_city_btn"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active" id="Austin" city_name="Austin" country_code="US">Austin</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="Chicago" city_name="Chicago" country_code="US">Chicago</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="NewYork" city_name="New York" country_code="US">New York</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="Orlando" city_name="Orlando" country_code="US">Orlando</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="SanFrancisco" city_name="San Francisco" country_code="US">San Francisco</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="Seattle" city_name="Seattle" country_code="US">Seattle</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="Denver" city_name="Denver" country_code="US">Denver</a>
+                        <a href="#" class="list-group-item list-group-item-action" id="Atlanta" city_name="Atlanta" country_code="US">Atlanta</a>
+                    </div>
+                </div>
+                <div class="col-md-9 p-2">
+                    <div class="row border p-3 ml-2 mt-3">
+                        <h1><span id="current_city">Austin</span> (<span id="current_date"></span>)<span id="weather_icon"></span></h1>
+                        <div class="col-md-12">
+                            <p>Temperature: <span id="current_temp">90.9</span> °F</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>Humidity: <span id="current_hum">41</span> %</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>Wind Speed: <span id="current_speed">4.7 </span> MPH</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>UV Index: <span id="current_uv" class="p-2">9.49</span></p>
+                        </div>
+                    </div>
+                    <div class="row mt-2 ml-2 p-3 d-flex flex-column">
+                        <p class="h1">5-Day <span id="add_data_label">Forecast</span>:</p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card bg-primary text-white text-left p-3">
+                                    <blockquote class="blockquote mb-0">
+                                      <h3><span id="first_date">1/13/2020</span></h3>
+                                      <p id="first_icon"></p>
+                                      <p>Temp: <span id="first_temp">86.84</span>°F</p>
+                                      <p>Humidity: <span id="first_hum">41</span>%</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-white text-left p-3">
+                                    <blockquote class="blockquote mb-0">
+                                        <h3><span id="second_date">1/14/2020</span></h3>
+                                        <p id="second_icon"></p>
+                                        <p>Temp: <span id="second_temp">86.84</span>°F</p>
+                                        <p>Humidity: <span id="second_hum">42</span>%</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-white text-left p-3">
+                                    <blockquote class="blockquote mb-0">
+                                        <h3><span id="third_date">1/15/2020</span></h3>
+                                        <p id="third_icon"></p>
+                                        <p>Temp: <span id="third_temp">86.84</span>°F</p>
+                                        <p>Humidity: <span id="third_hum">45</span>%</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-white text-left p-3">
+                                    <blockquote class="blockquote mb-0">
+                                        <h3><span id="forth_date">1/16/2020</span></h3>
+                                        <p id="forth_icon"></p>
+                                        <p>Temp: <span id="forth_temp">86.84</span>°F</p>
+                                        <p>Humidity: <span id="forth_hum">43</span>%</p>
+                                    </blockquote>
+                                  </div>
+                            </div>
+                            <div class="col">
+                                <div class="card bg-primary text-white text-left p-3">
+                                    <blockquote class="blockquote mb-0">
+                                        <h3><span id="fifth_date">1/17/2020</span></h3>
+                                        <p id="fifth_icon"></p>
+                                        <p>Temp: <span id="fifth_temp">86.84</span>°F</p>
+                                        <p>Humidity: <span id="fifth_hum">43</span>%</p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./assets/js/popper.min.js"></script>
+    <!-- <script src="./assets/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/select2.full.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+
